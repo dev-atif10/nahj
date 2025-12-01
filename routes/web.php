@@ -10,7 +10,10 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\HomeController;
 
 
-:get('/', function () {
+
+
+
+Route::get('/', function () {
     return view('pages.auth.signin', ['title' => 'E-commerce Dashboard']);
 })->name('dashboard');
 
