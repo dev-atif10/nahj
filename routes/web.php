@@ -10,6 +10,14 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\HomeController;
 
 
+  Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+
+
+
 
 // Auth pages (custom)
 Route::middleware('guest')->group(function () {
