@@ -8,20 +8,24 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\HomeController;
- 
+
+
+
 // Auth pages (custom)
 Route::middleware('guest')->group(function () {
 
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+//      Route::get('/', function () {
+//     return view('pages.auth.signin', ['title' => 'E-commerce Dashboard']);
+// })->name('dashboard');
+
+    Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
 
 
-// Route::get('/', function () {
-//     return view('pages.auth.signin', ['title' => 'E-commerce Dashboard']);
-// })->name('dashboard');
+
 });
 
 Route::post('/logout', function () {
