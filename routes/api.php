@@ -12,10 +12,16 @@ use App\Http\Controllers\Api\ProjectController;
 
 Route::post('/register', [UserAuthController::class, 'register']);
 Route::post('/login', [UserAuthController::class, 'login']);
+Route::post('/forgot-password', [UserAuthController::class, 'forgotPassword']);
+Route::post('/reset-password', [UserAuthController::class, 'resetPassword']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [UserAuthController::class, 'logout']);
     Route::get('/me', [UserAuthController::class, 'me']);
+   Route::put('/updateProfile', [UserAuthController::class, 'updateProfile']);
+   Route::delete('/user', [UserAuthController::class, 'deleteAccount']);
+
  
 
 
@@ -49,9 +55,3 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
-
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});

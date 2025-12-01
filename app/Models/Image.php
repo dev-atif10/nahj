@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\ProjectController;
-
 
 class Image extends Model
 {
-    public function project()
-{
-    return $this->belongsTo(Project::class);
-}
+    // Allow mass assignment for path (and optionally project_id)
+    protected $guarded = [];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
                 // Validation errors
                 if ($e instanceof ValidationException) {
                     return $this->error(
-                        'Validation failed',
+                        'بيانات غير صالحة',
                         422,
                         $e->errors()
                     );
@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
                 // Model not found
                 if ($e instanceof ModelNotFoundException) {
                     return $this->error(
-                        'Resource not found',
+                        'المورد غير موجود',
                         404
                     );
                 }
@@ -63,7 +63,7 @@ class Handler extends ExceptionHandler
                 // Route not found
                 if ($e instanceof NotFoundHttpException) {
                     return $this->error(
-                        'Route not found',
+                        'المسار غير موجود',
                         404
                     );
                 }
@@ -71,14 +71,14 @@ class Handler extends ExceptionHandler
                 // Method not allowed
                 if ($e instanceof MethodNotAllowedHttpException) {
                     return $this->error(
-                        'Method not allowed',
+                        'نوع الطلب غير مسموح',
                         405
                     );
                 }
 
                 // Default server error
                 return $this->error(
-                    'Server error',
+                    'خطأ في الخادم الداخلي',
                     500
                 );
             }

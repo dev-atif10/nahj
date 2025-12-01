@@ -34,6 +34,7 @@ class User extends Authenticatable
     'mobile_number',
     'heir_mobile_number',
     'heir_name',
+    'role', // add role
 ];
 
     /**
@@ -63,5 +64,10 @@ class User extends Authenticatable
 {
     return $this->hasMany(BankAccount::class);
 }
+
+// convenient helpers (اختياري)
+public function isAdmin() { return $this->role === 'admin'; }
+public function isInvestor() { return $this->role === 'investor'; }
+public function isUser() { return $this->role === 'user'; }
 
 }
