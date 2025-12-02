@@ -41,3 +41,5 @@ jobs:
             **/.git*
             **/node_modules/**
             **/tests/**
+          dry-run: false          
+          git-ftp-args: --syncroot=.
